@@ -1,6 +1,7 @@
 package s0000;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * https://mp.weixin.qq.com/s/f9ebzbwymR8jQeUDxjeCDA
@@ -89,7 +90,7 @@ public class N0042TrappingRainWater {
      */
     public int stack(int[] height) {
         int ans = 0;
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>(height.length);
         for (int i = 0; i < height.length; ++i) {
             while (!stack.isEmpty() && height[stack.peek()] < height[i]) {
                 int top = stack.pop();
